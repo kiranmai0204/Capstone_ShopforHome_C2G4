@@ -1,0 +1,33 @@
+ProductId,ProductName,Price,Stock,Description,ProductIcon,CategoryType
+L05,CRISLAN SOFA (3+2 SEATER),54990,35, Add soothing charisma to your home décor with the Crislan sofa.,/assets/images/L05.jpg,1
+L06,ANDREA 3 + 1 + 1 SEATER,39900,50,"Durable structure, premium fabric and ergonomical design, compact design",/assets/images/L06.jpg,1
+L07,LEON SOFA (3 + 2 SEATER),83000,80,An elegant masterpiece that enhances the impression of your lounge.,/assets/images/L07.jpg,1
+L08,PROXIMA SOFA (3+2 SEATER),55000,66,It`s compact and is optimum in it`s design.,/assets/images/L08.jpg,1
+B05,MERCURY NIGHT STAND,990,45,Compact night stand with open shelves.,/assets/images/B05.jpg,0
+B06,CARVIN NIGHT STAND,5990,60,Melamine-faced engineered wood & MDF,/assets/images/B06.jpg,0
+B07,VENICE 4 PIECE  BEDROOM SET,54900,48,Two tone design with Melamine finish,/assets/images/B07.jpg,0
+B08,BRILLIANT KING SIZE BED,49900,40,"MDF Solid Rubber Wood,Timber veener and MDF",/assets/images/B08.jpg,0
+D05,NEVADA 7 PIECE DINING SET,55900,56,"Solid Rubberwood structure, MDF with Veeneer top, Premium Fabric Upholstered seat",/assets/images/D05.jpg,2
+D06,DINING CABINET,21900,60,Melamine-faced engineered wood.,/assets/images/D06.jpg,2
+D07,LUCAS 7 PIECE DINING SET,91000,65,Chairs provided with angled back rest for long sitting with greater comfort.,/assets/images/D07.jpg,2
+D08,SONALI 5 PIECE DINING SET,69900,70,Art marble with metal inlay work.,/assets/images/D08.jpg,2
+O05,EXECUTIVE TABLE SET,24590,67,"Knockdown Design, Side Storage.",/assets/images/O05.jpg,3
+O06,STUDY DESK,12490,58," Side storage with shutter, open shelves provided at the top of the table",/assets/images/O06.jpg,3
+O07,GIGH BACK CHAIR,5290,75,"Ergonomical Design with high Backrest, Armrest, Height adjustable gas lift and base with castors , Elegant look",/assets/images/O07.jpg,3
+O08,CONFERENCE TABLE,27900,80,Conference table with 10 seater capacity.,/assets/images/O08.jpg,3
+L09,HAILY RECLINER SOFA,79000,66,"Durable Structure, Premium fabric and Ergonomical Design, Recliner Feature, High Comfort level",/assets/images/L09.jpg,1
+L10,MICHIGAN CORNER SOFA,92000,75,"Durable Structure, Premium Fabric and Ergonomical Design, Compact design",/assets/images/L10.jpg,1
+L11,PORTLAND CORNER SOFA,145000,80,Comfortable arm rest console with storage and glass holder,/assets/images/L11.jpg,1
+L12,FERLAND RECLINAR SOFA,85000,78,"Durable Structure, Premium Leather and Ergonomical Design, Recliner Feature, High Comfort level.",/assets/images/L12.jpg,1
+B09,ANGELA 4 DOOR WARDROBE,58000,76,Unique two-tone wardrobe design (new color board-M62).,/assets/images/B09.jpg,0
+B10,ANGELA DRESSING TABLE,25900,65,Unique two-tone dressing table design (new color board-M62) with storage.,/assets/images/B10.jpg,0
+B11,TURKEY HYDRAULIC BED,15000,45,Hydraulic storage bed with strong bed structure.,/assets/images/B11.jpg,0
+B12,TURKEY 3 DOOR WARDROBE,12290,62,3 door wardrobe with provision for cloth hanging and drawer.,/assets/images/B12.jpg,0
+D09,CROCKERNY UNIT,26900,70,Unique looking design which can be used at living cabinet cum display cabinet at dining & living areas top portion provided with glass shutters for better aesthetics and visibility.,/assets/images/D09.jpg,2
+D10,BRISBANE 7 PIECE DINING SET,43900,74,Solid rubberwood design.,/assets/images/D10.jpg,2
+D11,DINING CABINET,19790,77,Unique design storage with lock in bottom hinged storage.,/assets/images/D11.jpg,2
+D12,CANTON 5 PIECE DINING SET ,38900,60, Solid rubberwood design.,/assets/images/D12.jpg,2
+O09,STUDY DESK,3790,56,"Knockdown Design,folding flap,shelfs and storage space",/assets/images/O09.jpg,3
+O10,EXECUTIVE WRITING TABLE,33900,70, Attractive looking two-tone executive table design with side storage unit.,/assets/images/O10.jpg,3
+O11,STUDY TYABLE,10490,68,. Two-tone design with functional features - 25mm thick tabletop.,/assets/images/O11.jpg,3
+O12,VISITOR CHAIR,7490,76,Excellent back support enable long sitting.,/assets/images/O12.jpg,3

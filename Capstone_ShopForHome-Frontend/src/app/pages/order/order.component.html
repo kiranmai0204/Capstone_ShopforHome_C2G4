@@ -1,0 +1,83 @@
+<h3 class="display-4 mb-5 ml-3 text-align-left font-weight-bold" *ngIf="currentUser.role != 'ROLE_MANAGER'">Orders</h3>
+<h3 class="display-4 mb-5 ml-3 text-align-left font-weight-bold" *ngIf="currentUser.role == 'ROLE_MANAGER'">Sales Report</h3>
+
+<!-- (change)="selectChangeEventHandler($event) -->
+<section class="h-100 h-custom">
+    <div class=" h-100 py-5">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col">
+            <select name="sortorders" [(ngModel)]="selectedDate">
+              <option></option>
+              <!-- <option *ngFor="let order of page?.content">{{order.createTime | date}}</option> -->
+              <option>2020</option>
+              <option>2021</option>
+              <option>2022</option>
+            </select>
+            <!-- <input type="text" [(ngModel)]="selectedDate"> -->
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col" class="h5">Orders</th>
+                  <th scope="col">ID</th>
+                  <th scope="col">Total</th>
+                  <th scope="col">Order Data</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Action</th>
+                  <th>
+                    <div class="col-lg-6">
+                      <button (click)="exportAsXLSX()" class="float-right">
+             <i class="btn btn-warning" aria-hidden="true"></i>Download</button>
+                  </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let order of page?.content  | filter:selectedDate">
+                <tr >
+                  <!-- <div *ngIf="selectedDate === ''|| order.orderId.toLowerCase().includes(selectedDate)"> -->
+                  <th scope="row">
+                    <div class="d-flex align-items-center">
+                      <div class="flex-column ms-4">
+                        <a>
+                            <p class="mb-0 ml-2" style="font-size: 14px;">Buyer Name:{{order.buyerName}}</p>
+                            <p class="mb-0 ml-2" style="font-size: 14px;">Buyer Email:{{order.buyerEmail}}</p>
+                        </a>
+                      </div>
+                    </div>
+                  </th>
+                  <td class="align-middle">
+                    <p class="mb-0" style="font-weight: 100; font-size: 14px"> {{order.orderId}}</p>
+                  </td>
+                  <td class="align-middle">
+                    <p class="mb-0" style="font-weight: 100; font-size: 14px;">Rs. {{order.orderAmount}}</p>
+                  </td>
+                  <td class="align-middle">
+                    <p class="mb-0" style="font-weight: 100; font-size: 14px;">{{ order.createTime | date:'EEEE, MMMM d, y'.toString()}}</p>
+                  </td>
+                  <td class="align-middle">
+                    <p class="mb-0" style="font-weight: 100; font-size: 14px;">{{OrderStatus[order.orderStatus]}}</p>
+                  </td>
+                  <td class="align-middle">
+                    <a *ngIf="!(currentUser.role == Role.Customer && currentUser.name == order.buyerEmail)"
+                       style="display:
+                    block" href="" routerLink="/order/{{order.orderId}}">
+                        <i class="fas fa-eye fa-lg"></i></a>
+                    <a *ngIf="order.orderStatus == 0" style="display: block" (click)="cancel(order)" routerLink="./">Cancel</a>
+                    <a *ngIf="currentUser.role != Role.Customer && order.orderStatus == 0"
+                       style="display: block"
+                       (click)="finish(order)"
+                       routerLink="./">
+                       Finish</a>
+                </td>
+              <!-- </div> -->
+            </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <ng-template #empty>
+        <h4 class="text-muted text-center">Wishlist is empty. Add to wishlist!</h4>
+    </ng-template>
+    </div>
+  </section>

@@ -1,0 +1,84 @@
+<section class="vh-100" style="background-color: white;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-xl-10">
+        <div class="card" style="border-radius: 1rem;">
+          <div class="row g-0" >
+            <div class="col-md-6 col-lg-5 d-none d-md-block">
+              <img src="{{productInfo?.productIcon}}"
+              style="border-top-left-radius: 15px; border-top-right-radius: 15px; height: 100%;" class="img-fluid"
+              alt="Laptop" />
+            </div>
+            <div class="col-md-6 col-lg-7 d-flex align-items-center">
+              <div class="card-body p-4 p-lg-5 text-black">
+
+                <div class="card-body pb-0">
+                  <div>
+                    <div>
+                      <p  class="text-dark font-weight-bold" style="font-size: 18px;">{{productInfo?.productName}}</p>
+                    </div>
+                  </div>
+                </div>
+                <hr class="my-0" />
+                <form name="form" #form='ngForm' (ngSubmit)="productInfo?.productStatus == 0 && addToCart()">
+                <div class="card-body pb-0">
+                  <div class="d-flex justify-content-between">
+                    <p class="text-dark"  style="font-size: 16px;">Description: {{productInfo?.productDescription}}</p>
+                  </div>
+                </div>
+                <hr class="my-0" />
+                <div class="card-body pb-0">
+                  <div class="d-flex justify-content-between">
+                    <p class="text-dark" style="font-size: 16px;">Price: Rs. {{productInfo?.productPrice}}</p>
+                  </div>
+                </div>
+                <hr class="my-0" />
+                <div class="card-body pb-0">
+                  <div class="d-flex justify-content-between">
+                    <p class="text-dark" style="font-size: 16px;">Stock: {{productInfo?.productStock}}</p>
+                  </div>
+                </div>
+                <hr class="my-0" />
+                <div class="card-body pb-0">
+                  <div class="d-flex justify-content-between">
+                    <p class="text-dark" style="font-size: 16px;">Sub Total: Rs. {{count * productInfo?.productPrice}}</p>
+                  </div>
+                </div>
+                <hr class="my-0" />
+                <div class="card-body pb-0">
+                  <div class="d-flex justify-content-between">
+                    <p class="text-dark" style="font-size: 16px;">Quantity</p>
+                    <input [(ngModel)]=count
+                            (change)="validateCount()"
+                            type="number"
+                            name="count"
+                            required
+                            min="1"
+                            [max]=productInfo?.productStock
+                    >
+                  </div>
+                </div>
+      
+                <div class="card-body pb-0">
+                  <i *ngIf="currentUser && addedToWishlist" style="color: red;" class="fas fa-heart fa-4x" (click)="handleRemoveFromWishList(productInfo.productId)"></i>
+                  <i *ngIf="currentUser && !addedToWishlist" class="far fa-heart fa-4x" (click)="handleAddToWishList(productInfo.productId)"></i>
+                </div>
+                
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-center pb-2 mb-1">
+                    <button class="btn btn-warning btn-lg btn-block" type="submit" [disabled]="!form.form.valid" *ngIf="productInfo?.productStatus == 0; else offBlock">Add to Cart</button>
+                    <ng-template #offBlock><a class="btn btn-secondary btn-lg disabled">Unavailable</a></ng-template>
+                  </div>
+                  <br/>
+                  
+                </div>
+              </form>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

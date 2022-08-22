@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="container">
+      <div class="row">
+          <div class="col-lg-6">
+              <form action="/" method="post" enctype="multipart/form-data">
+                  <input class="form-control" type="file" 
+                              (change)="onChange($event)">
+                    </form>
+                      <button (click)="onUpload()" 
+                          class="btn btn-warning mt-2">
+                          Upload
+                      </button>
+          </div>
+          <div class="col-lg-6">
+              <button (click)="exportAsXLSX()" class="float-right">
+     <i class="btn btn-warning" aria-hidden="true"></i>Download</button>
+          </div>
+      </div>
+  </div>
+    <div class="column box" *ngFor="let productInfo of page?.content" >
+        <div class="product-image"><img src="{{productInfo.productIcon}}" height="320px"/></div>
+        <br>
+        <div class="product"><strong>Product Id: </strong> {{productInfo.productId}}</div>
+        <div class="product"><strong>Product Name: </strong> {{productInfo.productName}}</div>
+        <div class="product"><strong>Category Type: </strong>{{CategoryType[productInfo.categoryType]}}</div>
+        <div class="d-flex product"><strong>Product Description: </strong>{{productInfo.productDescription}}</div>
+        <div class="Product"><strong>Price: </strong> {{productInfo.productPrice}}</div>
+        <div class="product"><strong>Stock: </strong> {{productInfo.productStock}}</div>
+        <div class="product-last"><a class="edit" style="display: flexbox;font-size: 20px;" routerLink="/seller/product/{{productInfo.productId}}/edit">
+            <button class="btn btn-primary btn-lg">Edit</button></a>
+            <a 
+            (click)="remove(page.content, productInfo.productId)" routerLink="./">
+             <button class="btn btn-danger btn-lg">Remove</button></a>
+             <button  (click)=onSubmit() [disabled]="(productInfo.productStock >10)? true:false" class="btn btn-info" style="width:2cm;">Email</button>
+            </div>
+          <hr>
+    </div>
+    </div>
+ 
+
+
+<app-pagination [currentPage]="page"></app-pagination>

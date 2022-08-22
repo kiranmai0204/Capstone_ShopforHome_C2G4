@@ -1,0 +1,97 @@
+<section class="vh-100" style="background-color: white;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-xl-10">
+        <div class="card" style="border-radius: 1rem;">
+          <div class="row g-0">
+            <div class="col-md-6 col-lg-5 d-none d-md-block">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmuLyyyk-Z1-nEYhvOadeY5D4RdKtANEuDcAqARpFvzEibNuYS6PHFnhGJI4mnfdaUuOw&usqp=CAU"
+                alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem; height: 100%;" />
+            </div>
+            <div class="col-md-6 col-lg-7 d-flex align-items-center">
+              <div class="card-body p-4 p-lg-5 text-black">
+                <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+                  <div class="d-flex align-items-center mb-3 pb-1">
+                    <!-- <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i> -->
+                    <img height="50px" src="assets/brand.ico" />
+                    <span class="h1 fw-bold mb-0">Shop For Home</span>
+                  </div>
+
+                  <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign up</h5>
+
+                  <div class="form-outline mb-4">
+                    <label><b>Email address</b></label>
+                    <input formControlName="email" type="email" class="form-control form-control-lg" id="email" name="email" placeholder="Enter email" email required autofocus  >
+                    <div  *ngIf="f.email.invalid && (f.email.dirty ||f.email.touched)" >
+                        <div *ngIf="f.email.errors.required" >
+                            Email is required.
+                        </div>
+                        <div *ngIf="f.email.errors.email">
+                            Invalid Email.
+                        </div>
+                    </div>
+                  </div>
+                  
+
+                  <div class="form-outline mb-4">
+                    <label><b>Name</b></label>
+                    <input formControlName="name" type="text" class="form-control form-control-lg" id="name" name="name" placeholder="Your name" required >
+                      <div  *ngIf="f.name.invalid && (f.name.dirty || f.name.touched)">
+                          <div *ngIf="f.name.errors.required">
+                              Name is required.
+                          </div>
+                          <div *ngIf="f.name.errors.minlength">
+                              Name must be at least 3 characters long.
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <label><b>Password</b></label>
+                    <input  formControlName="password" type="password" class="form-control form-control-lg" id="password" name="password" placeholder="Password"  required >
+                      <div  *ngIf="f.password.invalid && (f.password.dirty || f.password.touched)">
+                          <div *ngIf="f.password.errors.required">
+                              Password is required.
+                          </div>
+                          <div *ngIf="f.password.errors.minlength">
+                              Password must be at least 8 characters long.
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <label><b>Phone</b></label>
+                    <input formControlName="phone" type="text" class="form-control form-control-lg" id="phone" name="phone" placeholder="Phone" required  >
+                      <div  *ngIf="f.phone.invalid && (f.phone.dirty || f.phone.touched)">
+                          <div *ngIf="f.phone.errors.required">
+                              Phone is required.
+                          </div>
+                      </div>
+                  </div>
+
+
+                  <div class="form-outline mb-4">
+                    <label><b>Address</b></label>
+                    <input formControlName="address" type="text" class="form-control form-control-lg" id="address" name="address" placeholder="Address" required >
+                      <div  *ngIf="f.address.invalid && (f.address.dirty || f.address.touched)">
+                          <div *ngIf="f.address.errors.required">
+                              Address is required.
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="pt-1 mb-4">
+                    <button type="submit" class="btn btn-lg btn-primary btn-block" [disabled]="!registerForm.valid" >Sign up for Admin</button>
+                  </div>
+
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

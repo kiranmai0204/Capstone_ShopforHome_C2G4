@@ -1,0 +1,67 @@
+<section class="vh-100" style="background-color: white;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-xl-10">
+          <div class="card" style="border-radius: 1rem;">
+            <div class="row g-0">
+              <div class="col-md-6 col-lg-5 d-none d-md-block">
+                <img src="https://wakefit-co.s3.ap-south-1.amazonaws.com/img/decor/wall%20clock/Galileo/1.jpg"
+                  alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem; height: 100%;" />
+              </div>
+              <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                <div class="card-body p-4 p-lg-5 text-black">
+
+                    <div class="alert alert-danger" *ngIf="isInvalid">
+                        Invalid username and password.
+                    </div>
+                    <div class="alert alert-info" *ngIf="isLogout">
+                        You have been logged out.
+                    </div>
+  
+                  <form #form='ngForm' (ngSubmit)="onSubmit()">
+  
+                    <div class="d-flex align-items-center mb-3 pb-1">
+                      
+                      <img height="50px" src="assets/brand.ico" />
+                      <span class="h1 fw-bold mb-0">Shop For Home</span>
+                    </div>
+  
+                    <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
+  
+                    <div class="form-outline mb-4">
+                    <label class="form-label">Email address</label>
+                      <input class="form-control form-control-lg"  type="text" id="email" name="email" placeholder="Enter email"
+                      required autofocus [(ngModel)]="model.username" #email="ngModel" autocomplete="email" />
+                      <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+                        Email is required
+                    </div>
+                    </div>
+                    
+  
+                    <div class="form-outline mb-4">
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-control form-control-lg" id="password" name="password"  autocomplete="password"
+                               placeholder="Password" required [(ngModel)]="model.password" #password='ngModel' />
+                        <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
+                            Password is required
+                        </div>
+                    </div>
+
+                    
+  
+                    <div class="pt-1 mb-4">
+                      <button [disabled]="!form.form.valid" type="submit" class="btn btn-dark btn-lg btn-block">Login</button>
+                    </div>
+  
+                    <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="#!"
+                        style="color: #393f81; " routerLink="/register">Register here</a></p>
+                  </form>
+  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

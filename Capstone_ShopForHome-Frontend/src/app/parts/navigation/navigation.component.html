@@ -1,0 +1,83 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light" >
+    <a class="navbar-brand" [routerLink]="root">
+        <img hspace="5" boarder-radius="5px"src="https://iconarchive.com/download/i77853/custom-icon-design/pretty-office-11/shop.ico" width="30" height="30" class="d-inline-block align-top" alt="">
+        Shop For Home
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+
+        <div class="navbar-nav" *ngIf="!currentUser || currentUser.role == Role.Customer">
+
+            <a class="nav-item nav-link "
+               routerLink="/category/0">
+                Bedroom
+            </a>
+            <a class="nav-item nav-link"
+               routerLink="/category/1">
+               Living
+            </a>
+            <a class="nav-item nav-link "
+               routerLink="/category/2">
+               Dinning
+            </a>
+            <a class="nav-item nav-link"
+               routerLink="/category/3">
+               Office
+            </a>
+
+           
+
+        </div>
+
+        
+
+        <div class="navbar-nav ml-auto">
+            <a *ngIf="!currentUser || currentUser.role == Role.Customer"
+                    class="nav-item nav-link " routerLink="/cart">
+                <i class="fas fa-shopping-cart"></i>
+                Cart
+            </a>
+
+            <div class="navbar-nav" *ngIf="currentUser && currentUser.role == Role.Manager">
+                <a class="nav-item nav-link"  routerLink="/addProduct">Add Product</a>
+                <a class="nav-item nav-link"  routerLink="/discount">Discount</a>
+                <a class="nav-item nav-link" (click)=getUsers() routerLink="/admin/user">Users</a>
+                <a class="nav-item nav-link" routerLink="/seller/product">Stocks</a>
+                <a class="nav-item nav-link" routerLink="/order">Report</a>
+            </div>
+
+            <div class="navbar-nav" *ngIf="currentUser && currentUser.role == Role.Customer">
+                <a class="nav-item nav-link"  routerLink="/wishlist">Wishlist</a>
+            </div>
+
+            <ng-container *ngIf="currentUser; else noUser">
+                <a class="nav-item nav-link" *ngIf="!currentUser || currentUser.role == Role.Customer" routerLink="/order">
+                    <i class="fas fa-list-ul"></i>
+                    Orders
+                </a>
+                <a class="nav-item nav-link " routerLink="/profile">
+                     {{name}}
+                </a>
+                <a class="nav-item nav-link " (click)="logout()" routerLink="/login" [queryParams]="{logout: true}">
+                    Log Out
+                </a>
+            </ng-container>
+            <ng-template #noUser>
+                <a class="nav-item nav-link " routerLink="/login">
+                    Log In
+                </a>
+                <a class="nav-item nav-link" routerLink="/register">
+                    Register
+                </a>
+                <a class="nav-item nav-link" routerLink="/adminsignup">
+                    Admin
+                </a>
+            </ng-template>
+            
+            </div>
+    </div>
+</nav>

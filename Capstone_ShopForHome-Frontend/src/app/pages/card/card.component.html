@@ -1,0 +1,48 @@
+<div>
+  <a href="https://ii1.pepperfry.com/media/catalog/product/s/a/494x544/savvy-king-size-upholstered-bed-in-white-colour-by-dreamzz-furniture-savvy-king-size-upholstered-bed-5gihkn.jpg">
+  <img src="https://ii1.pepperfry.com/media/catalog/product/s/a/494x544/savvy-king-size-upholstered-bed-in-white-colour-by-dreamzz-furniture-savvy-king-size-upholstered-bed-5gihkn.jpg" height="200px" width="275px"/>
+  </a>
+  <a href="https://ii3.pepperfry.com/media/catalog/product/m/e/494x544/merida-3-seater-sofa-in-white-colour---casacraft-by-pepperfry-merida-3-seater-sofa-in-white-colour---mlmdva.jpg">
+  <img src="https://ii3.pepperfry.com/media/catalog/product/m/e/494x544/merida-3-seater-sofa-in-white-colour---casacraft-by-pepperfry-merida-3-seater-sofa-in-white-colour---mlmdva.jpg" height="200px" width="275px"/>
+  </a>
+  <a href="https://ii2.pepperfry.com/media/catalog/product/n/o/494x544/novo-6-seater-dining-set-with-bench-in-white-colour-by-bohemiana-novo-6-seater-dining-set-with-bench-2kicvz.jpg">
+  <img src="https://ii2.pepperfry.com/media/catalog/product/n/o/494x544/novo-6-seater-dining-set-with-bench-in-white-colour-by-bohemiana-novo-6-seater-dining-set-with-bench-2kicvz.jpg" height="200px" width="275px"/>
+  </a>
+  <a href="https://ii3.pepperfry.com/media/catalog/product/s/o/494x544/sos-liteoffice-office-table-in-everest-white--colour-by-spacewood-sos-liteoffice-office-table-in-eve-mj8c1g.jpg">
+  <img src="https://ii3.pepperfry.com/media/catalog/product/s/o/494x544/sos-liteoffice-office-table-in-everest-white--colour-by-spacewood-sos-liteoffice-office-table-in-eve-mj8c1g.jpg" height="200px" width="275px"/>
+  </a>
+</div>
+<marquee style="font-size: x-large ;font-style: italic ;" >If you love it, buy it...Otherwise, someone else will !</marquee>
+<div>
+<h3 class="display-4 mb-5 font-weight-bold ml-5">{{title}}</h3>
+<div class="search-div mt-0">
+  <input class="search-input" placeholder="Search Products"  type = "text" name="search" [(ngModel)]="searchTerm" style="width:50%; height:30px">
+  <select (change)="sortProductByPrice($event.target)" >
+    <option selected value="undefined" disabled>Sort By</option>
+    <option value="l2h">Price: Low to High</option>
+    <option value="h2l">Price: High to Low</option>
+  </select>
+</div>
+<div class="row container">
+<div class="column box" *ngFor="let productInfo of page?.content | filter:searchTerm " >
+    <div class="product-image"><img src="{{productInfo.productIcon}}" height="320px"/></div>
+    <br>
+    <div class="d-flex flex-row mb-1" style="font-size:14px;">{{productInfo.productName}}</div>
+    <div class="text-truncate mb-4 mb-md-0 align-items-left" style="font-size: 12px;">
+    <p >Stock : {{productInfo.productStock}}</p>
+  </div>
+  <br/>
+      <div class="d-flex flex-row mb-1">
+        <p class="col-md-6 col-lg-6 col-xl-6" style="font-size: 10px;">Rs. {{productInfo.productPrice}}</p>
+      </div>
+      <div class="d-flex mt-4">
+        <button routerLink="/product/{{productInfo.productId}}" *ngIf="productInfo.productStatus == 0; else offBlock" class="btn btn-outline-warning btn-lg mt-2" type="button">
+          Add to cart
+        </button>
+        <ng-template #offBlock><a class="btn btn-secondary btn-lg disabled">Unavailable</a></ng-template>
+      </div>
+    
+    <hr>
+</div>
+</div>
+<app-pagination  [currentPage]="page" ></app-pagination>
